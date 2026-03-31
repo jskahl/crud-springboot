@@ -24,4 +24,9 @@ public class ItemController {
     public Item create(@RequestBody Item item) {
         return itemService.save(item);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        itemService.delete(id);
+    }
 }
