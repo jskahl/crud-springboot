@@ -10,12 +10,15 @@ public class Item {
     private Long id;
     private String name;
     private String dateCreation;
-    private Integer itemType;
+
+    @ManyToOne
+    @JoinColumn(name = "item_type_id")
+    private ItemType itemType;
 
     public Item() {
     }
 
-    public Item(Long id, String name, String dateCreation, Integer itemType) {
+    public Item(Long id, String name, String dateCreation, ItemType itemType) {
         this.id = id;
         this.name = name;
         this.dateCreation = dateCreation;
@@ -34,7 +37,7 @@ public class Item {
         return dateCreation;
     }
 
-    public Integer getItemType() {
+    public ItemType getItemType() {
         return itemType;
     }
 
@@ -50,8 +53,7 @@ public class Item {
         this.dateCreation = dateCreation;
     }
 
-    public void setItemType(Integer itemType) {
+    public void setItemType(ItemType itemType) {
         this.itemType = itemType;
     }
-
 }
